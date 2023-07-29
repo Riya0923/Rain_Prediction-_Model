@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rain Prediction Form</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  
+</head>
+<body>
+  <div class="container">
+    <div>
+      <h1><b>Rain Prediction</b></h1>
+    </div>
+    <form action="{{ url_for('predict')}}" method="post">
+      <!-- 1st row -->
+      <div class="row">
+        <div class="ip">
+          <label for=""> Date: </label>
+          <input type="date" name="Date" required>
+        </div>
+        <div class="ip">
+          <label for="" class="shift">Location: </label>
+          <input type="text" name="Location" required>
+          <div class="underline"></div>
+        </div>
+      </div>
+      <!-- 2nd row -->
+      <div class="row">
+        <div class="ip">
+          <label for=""> Min Temp: </label>
+          <input type="number" name="MinTemp" required>
+        </div>
+        <div class="ip">
+          <label for="">Max Temp: </label>
+          <input type="number" name="MaxTemp" required>
+          <div class="underline"></div>
+        </div>
+      </div>
+      <!-- 3rd row -->
+      <div class="row">
+        <div class="ip">
+          <label for=""> Rainfall: </label>
+          <input type="number" name="Rainfall" required>
+        </div>
+        <div class="ip">
+          <label for="">Evaporation: </label>
+          <input type="number" name="Evaporation" required>
+          <div class="underline"></div>
+        </div>
+      </div>
+      <!-- 4th row -->
+      <div class="row">
+        <div class="ip">
+          <label for=""> Sunshine: </label>
+          <input type="number" name="Sunshine" required>
+        </div>
+        <div class="ip">
+          <label for=""> Wind Gust Direction: </label>
+          <select id="dropdown" name="WindGustDir">
+            <option value="E" selected>E</option>
+            <option value="W">W</option>
+            <option value="N">N</option>
+            <option value="S">S</option>
+
+            <option value="NE">NE</option>
+            <option value="NW">NW</option>
+            <option value="SE">SE</option>
+            <option value="SW">SW</option>
+
+            <option value="ENE">ENE</option>
+            <option value="SSW">SSW</option>
+            <option value="ESE">ESE</option>
+            <option value="SSW">SSW</option>
+            
+            <option value="NNE">NNE</option>
+            <option value="WNW">WNW</option>
+            <option value="WSW">WSW</option>
+            <option value="NNW">NNW</option>
+          </select>
+        </div>
+        
+      </div>
+      <!-- 5th row -->
+      <div class="row">
+        
+        <div class="ip">
+          <label for="">Wind Gust Speed: </label>
+          <input type="number" name="WindGustSpeed" required>
+          <div class="underline"></div>
+        </div>
+        <div class="ip">
+          <label for=""> Wind Direction 9AM: </label>
+          <select id="dropdown" name="WindDir9am">
+            <option value="E" selected>E</option>
+            <option value="W">W</option>
+            <option value="N">N</option>
+            <option value="S">S</option>
+
+            <option value="NE">NE</option>
+            <option value="NW">NW</option>
+            <option value="SE">SE</option>
+            <option value="SW">SW</option>
+
+            <option value="ENE">ENE</option>
+            <option value="SSW">SSW</option>
+            <option value="ESE">ESE</option>
+            <option value="SSW">SSW</option>
+            
+            <option value="NNE">NNE</option>
+            <option value="WNW">WNW</option>
+            <option value="WSW">WSW</option>
+            <option value="NNW">NNW</option>
+          </select>
+        </div>
+      </div>
+      <!-- 6th row -->
+      <div class="row">
+        <div class="ip">
+          <label for=""> Wind Direction 3PM: </label>
+          <select id="dropdown" name="WindDir3pm">
+            <option value="E" selected>E</option>
+            <option value="W">W</option>
+            <option value="N">N</option>
+            <option value="S">S</option>
+
+            <option value="NE">NE</option>
+            <option value="NW">NW</option>
+            <option value="SE">SE</option>
+            <option value="SW">SW</option>
+
+            <option value="ENE">ENE</option>
+            <option value="SSW">SSW</option>
+            <option value="ESE">ESE</option>
+            <option value="SSW">SSW</option>
+            
+            <option value="NNE">NNE</option>
+            <option value="WNW">WNW</option>
+            <option value="WSW">WSW</option>
+            <option value="NNW">NNW</option>
+          </select>
+        </div>
+        <div class="ip">
+          <label for=""> Wind speed 9AM: </label>
+          <input type="number" name="WindSpeed9am" required>
+        </div>
+      </div>
+      <!-- 7th row -->
+      <div class="row">
+        <div class="ip">
+          <label for="">Wind speed 3PM: </label>
+          <input type="number" name="WindSpeed3pm" required>
+          <div class="underline"></div>
+        </div>
+        <div class="ip">
+          <label for="">Humidity 9AM: </label>
+          <input type="number" name="Humidity9am" required>
+          <div class="underline"></div>
+        </div>
+      </div>
+      <!-- 8th row -->
+      <div class="row">
+        <div class="ip">
+          <label for="">Humidity 3PM: </label>
+          <input type="number" name="Humidity3pm" required>
+          <div class="underline"></div>
+        </div>
+        <div class="ip">
+          <label for="">Pressure 9AM: </label>
+          <input type="number" name="Pressure9am" required>
+          <div class="underline"></div>
+        </div>
+      </div>
+      <!-- 9th row -->
+      <div class="row">
+        <div class="ip">
+          <label for="">Pressure 3PM: </label>
+          <input type="number" name="Pressure3pm" required>
+          <div class="underline"></div>
+        </div>
+        <div class="ip">
+          <label for="">Cloud 9AM: </label>
+          <input type="number" name="Cloud9am" required>
+          <div class="underline"></div>
+        </div>
+      </div>
+      <!-- 10th row -->
+      <div class="row">
+        <div class="ip">
+          <label for="">Cloud 3PM: </label>
+          <input type="number" name="Cloud3pm" required>
+          <div class="underline"></div>
+        </div>
+        <div class="ip">
+          <label for="">Temperature 9AM: </label>
+          <input type="number" name="Temp9am" required>
+          <div class="underline"></div>
+        </div>
+      </div>
+      <!-- 11th row -->
+      <div class="row">
+        <div class="ip">
+          <label for="">Temperature 3PM: </label>
+          <input type="number" name="Temp3pm" required>
+          <div class="underline"></div>
+        </div>
+        <div class="ip">
+          <label for="">Rain Today: </label>
+          <select id="dropdown" name="RainToday">
+            <option value="Yes" selected>Yes</option>
+            <option value="No">No</option>
+        </select>
+        </div>
+      </div>
+
+
+      <button type="submit" value="submit">Predict</button>
+    </form>
+  </div>
+  <br>
+  <br>
+  <div>
+    {{ prediction_text }}
+  </div>
+</body>
+</html>
