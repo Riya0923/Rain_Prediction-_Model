@@ -87,7 +87,7 @@ def predict():
     df = df.drop(['Date'], axis='columns')
     #return render_template("index.html", prediction_text=df[df.columns[-1]])
     y_pred_test = model.predict(df)
-    return render_template("index.html", prediction_text="Tomorrow's Rain Prediction is {}".format(y_pred_test))
+    return render_template("index.html", prediction_text="Rain Prediction is {}".format(y_pred_test))
 
 if __name__ == "__main__":
     app.run(debug=True)
