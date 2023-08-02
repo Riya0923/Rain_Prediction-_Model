@@ -48,9 +48,11 @@ def predict():
     column_list = ['Date','Location_Adelaide','Location_Albany','Location_Albury','Location_AliceSprings','Location_BadgerysCreek','Location_Ballarat','Location_Bendigo','Location_Brisbane','Location_Cairns','Location_Canberra','Location_Cobar','Location_CoffsHarbour','Location_Dartmoor','Location_Darwin','Location_GoldCoast','Location_Hobart','Location_Katherine','Location_Launceston','Location_Melbourne','Location_MelbourneAirport','Location_Mildura','Location_Moree','Location_MountGambier','Location_MountGinini','Location_Newcastle','Location_Nhil','Location_NorahHead','Location_NorfolkIsland','Location_Nuriootpa','Location_PearceRAAF','Location_Penrith','Location_Perth','Location_PerthAirport','Location_Portland','Location_Richmond','Location_Sale','Location_SalmonGums','Location_Sydney','Location_SydneyAirport','Location_Townsville','Location_Tuggeranong','Location_Uluru','Location_WaggaWagga','Location_Walpole','Location_Watsonia','Location_Williamtown','Location_Witchcliffe','Location_Wollongong','Location_Woomera', 'MinTemp',   'MaxTemp','Rainfall','Evaporation','Sunshine','WindGustDir_E','WindGustDir_ENE','WindGustDir_ESE','WindGustDir_N','WindGustDir_NE','WindGustDir_NNE','WindGustDir_NNW','WindGustDir_NW','WindGustDir_S','WindGustDir_SE','WindGustDir_SSE','WindGustDir_SSW','WindGustDir_SW','WindGustDir_W','WindGustDir_WNW','WindGustDir_WSW','WindGustSpeed','WindDir9am_E','WindDir9am_ENE','WindDir9am_ESE','WindDir9am_N','WindDir9am_NE','WindDir9am_NNE','WindDir9am_NNW','WindDir9am_NW','WindDir9am_S','WindDir9am_SE','WindDir9am_SSE','WindDir9am_SSW','WindDir9am_SW','WindDir9am_W','WindDir9am_WNW','WindDir9am_WSW','WindDir3pm_E','WindDir3pm_ENE','WindDir3pm_ESE','WindDir3pm_N','WindDir3pm_NE','WindDir3pm_NNE','WindDir3pm_NNW','WindDir3pm_NW','WindDir3pm_S','WindDir3pm_SE','WindDir3pm_SSE','WindDir3pm_SSW','WindDir3pm_SW','WindDir3pm_W','WindDir3pm_WNW','WindDir3pm_WSW','WindSpeed9am','WindSpeed3pm','Humidity9am','Humidity3pm','Pressure9am','Pressure3pm','Cloud9am','Cloud3pm','Temp9am','Temp3pm','Year','Month','Day','RainToday']
 
     # Data Formation
+    
     df = pd.DataFrame(0, index=np.arange(1), columns=column_list)
 
     # Numaric value update
+    
     df['Date'] = Date
     df['RainToday'] = RainToday
     df['MinTemp'] = MinTemp 
@@ -74,6 +76,7 @@ def predict():
 
 
     # Categorical value update
+    
     df["WindGustDir" + "_" + WindGustDir] = 1
     df["WindDir9am" + "_" + WindDir9am] = 1
     df["WindDir3pm" + "_" + WindDir3pm] = 1
@@ -87,7 +90,7 @@ def predict():
     df = df.drop(['Date'], axis='columns')
     #return render_template("index.html", prediction_text=df[df.columns[-1]])
     y_pred_test = model.predict(df)
-    return render_template("index.html", prediction_text="Rain Prediction is {}".format(y_pred_test))
+    return render_template("index.html", prediction_text="Tomorrow's rain Prediction is {}".format(y_pred_test))
 
 if __name__ == "__main__":
     app.run(debug=True)
