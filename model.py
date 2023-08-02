@@ -11,7 +11,24 @@
        4.6. Finding Null Values
        4.7. Visualising Missing Values
        4.8. Dealing with the missing values
-    5. Univariate Data Analysis
+    5. Univariate Analysis
+       5.1. Exploring 'RainTomorrow' target variable
+       5.2. Conclusion of Univariate Analysis
+    6. Bivariate Analysis
+       6.1. Explore all categorical values one by one
+       6.2  Explore Numerical Variables
+    7. Multivariate Analysis
+    8. Declare feature vector and target variable
+    9. Split Data into separate training and test set
+   10. Feature Engineering
+   11. Feature Scaling
+   12. Model Training
+   13. Predict Result
+   14. Check Accuracy Score 
+   15. Confusion Matrix
+   16. Classification Metrics
+   17. Model Evaluation and Improvement
+   18. Result and Conclusion
     
 '''
 """
@@ -117,7 +134,7 @@ df1['RainTomorrow']=df1['RainTomorrow'].fillna(df1['RainTomorrow'].mode()[0])
 
 (df1.isnull().sum()/len(df1))*100
 
-# 5. UNIVARIATE DATA ANALYSIS
+# 5. UNIVARIATE ANALYSIS
 
 #    5.1. Exploring 'RainTomorrow' target variable
 
@@ -144,7 +161,7 @@ df1['RainTomorrow'].value_counts()/len(df1)
 
 """ Interpretation """
 
-print(f"For the Rain Tomorrow Feature")
+print("For the Rain Tomorrow Feature")
 print(f"Yes is {0.780854*100}% times")
 print(f"No is {0.219146*100}% times")
 
@@ -562,7 +579,7 @@ df1['WindSpeed3pm'].describe()
 
 ''' For WindSpeed3pm, the minimum and maximum values are 0.0 and 87.0. So, the outliers are values > 57.0. '''
 
-# 7. MULTIVARIATE DATA ANALYSIS
+# 7. MULTIVARIATE ANALYSIS
 
 """
       * An important step in EDA is to discover patterns and relationships between variables in the dataset.
@@ -638,7 +655,7 @@ y = df1['RainTomorrow']
 
 # Split X and y into training and testing sets
 
-from sklearn.model_selection import train_test_split
+#from sklearn.model_selection import train_test_split
 X_train,X_test,y_train,y_test = train_test_split(X,y,test_size=0.2,random_state=0)
 
 #check the shape of X_train and X_test
@@ -686,11 +703,11 @@ for col in numerical:
     print(col, round(X_train[col].isnull().mean(),4))
     
 
-
+"""
 * We assume that the data are missing completely at random (MCAR). There are two methods which can be used to impute missing values. One is mean or median imputation and other one is random sample imputation. When there are outliers in the dataset, we should use median imputation. So, we will use median imputation because median imputation is robust to outliers.
 
 * We will impute missing values with the appropriate statistical measures of the data, in this case median. Imputation should be done over the training set, and then propagated to the test set. It means that the statistical measures to be used to fill missing values both in train and test set, should be extracted from the train set only. This is to avoid overfitting.
-""
+"""
 # impute missing values in X_train and X_test with respective column median in X_train
 
 for df2 in [X_train, X_test]:
@@ -846,7 +863,7 @@ X_train.describe()
 
 # 12. MODEL TRAINING
 
-from sklearn.linear_model import LogisticRegression
+#from sklearn.linear_model import LogisticRegression
 
 #instantiate the model
 logreg = LogisticRegression(solver='liblinear',random_state=0)
@@ -980,7 +997,7 @@ print('Null accuracy score: {0:0.4f}'.format(null_accuracy))
 
 # print the confusion matrix
 
-from sklearn.metrics import confusion_matrix
+#from sklearn.metrics import confusion_matrix
 
 cm = confusion_matrix(y_test, y_pred_test)
 
