@@ -1088,7 +1088,7 @@ print(classification_report(y_test, predictions))
 print(accuracy_score(y_test, predictions))
 
 
-"""**Hence we conclude that on comparing the there Alogithms Logistic Regression proves to be most accurate**"""
+"""**Hence we conclude that on comparing with other Alogithms Logistic Regression proves to be most accurate**"""
 
 # 17. MODEL EVALUATION AND IMPROVEMENT
 
