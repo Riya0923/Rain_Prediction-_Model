@@ -1087,18 +1087,6 @@ print(confusion_matrix(y_test, predictions))
 print(classification_report(y_test, predictions))
 print(accuracy_score(y_test, predictions))
 
-"""***
-**3. Random Forest**
-***
-"""
-
-from sklearn.ensemble import RandomForestClassifier
-rf = RandomForestClassifier()
-rf.fit(X_train,y_train)
-predictions = rf.predict(X_test)
-print(confusion_matrix(y_test, predictions))
-print(classification_report(y_test, predictions))
-print(accuracy_score(y_test, predictions))
 
 """**Hence we conclude that on comparing the there Alogithms Logistic Regression proves to be most accurate**"""
 
